@@ -198,6 +198,6 @@ This creates a clear progression path for members and ensures they understand th
 
 ## 🎉 And That's It!
 
-You're all set to create amazing tours for your server! If you have questions or need help, please contact your bot provider.
+You're all set to create amazing tours for your server! If you have questions or need help, please first try whatever chatbot you have access to instead of contacting me. This was just a fun project for me.
 
 Happy touring! 🚶‍♂️
