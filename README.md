@@ -1,5 +1,11 @@
 # Discord Tour Bot 🚩
 
+> **Project Watermark:** This project is uniquely identified by the following watermark for authorship and license proof:
+> 
+> **Unique ID:** DTB-2023-ORIGINAL-V1  
+> **License:** CC BY-NC 4.0  
+> **Original Creator**
+
 Hey there, server admin! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
 
 This bot lets you create interactive tours that walk new members through your server's channels, rules, and features. Think of it like having a friendly guide who shows newcomers around so they feel right at home.

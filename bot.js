@@ -1,3 +1,6 @@
+// --- Project Watermark: Discord Tour Bot by original author, licensed CC BY-NC 4.0 ---
+// Unique ID: DTB-2023-ORIGINAL-V1
+
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionType, PermissionsBitField } = require('discord.js'); // Modified: Added ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionType, PermissionsBitField
 const db = require('./database.js'); // Import database module
@@ -17,6 +20,8 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    // Watermark log for authorship proof
+    console.log('WATERMARK: Discord Tour Bot | Unique ID: DTB-2023-ORIGINAL-V1 | License: CC BY-NC 4.0 | Author: Original Creator');
     // Ensure database is initialized (the database.js module handles this on require, but good to log)
     console.log('Database module loaded. Tables should be initializing if not present.');
     // Potentially, iterate over guilds the bot is in and ensure default tours/configs
