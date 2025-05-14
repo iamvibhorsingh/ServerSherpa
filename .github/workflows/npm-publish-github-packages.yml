@@ -1,0 +1,44 @@
+name: Node.js Package Publisher
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-gpr:
+    name: Publish to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: 'iamvibhorsingh'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Workaround: Ensure package.json name includes scope for GitHub Packages'
+        if: failure()
+        run: |
+          echo "----------------------------------------------------------------------------------"
+          echo "PUBLISH FAILED!"
+          echo "COMMON ISSUE: Your package.json 'name' field might be missing the GitHub scope."
+          echo "For GitHub Packages, it should be like: '@YOUR_GITHUB_USERNAME/serversherpa'"
+          echo "Please check your package.json and try again."
+          echo "----------------------------------------------------------------------------------"
+          exit 1
