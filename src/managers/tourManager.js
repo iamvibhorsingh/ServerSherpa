@@ -1,5 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const db = require('./database.js');
+const db = require('../db/database.js');
 const configManager = require('./configManager.js');
 
 // Moved from bot.js

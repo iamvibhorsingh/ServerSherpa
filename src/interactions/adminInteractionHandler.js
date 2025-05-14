@@ -1,5 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ComponentType, InteractionType } = require('discord.js');
-const db = require('./database.js');
+const db = require('../db/database.js');
 
 // --- Main Menu --- 
 async function sendMainMenu(interactionOrMessage) {
@@ -1019,4 +1019,4 @@ async function handleInteraction(interaction) {
     }
 }
 
-module.exports = { sendMainMenu, handleInteraction, sendTourManagementMenu, sendStepManagementMenu, sendSetRoleForTourUI };
+module.exports = { sendMainMenu, handleInteraction, sendTourManagementMenu, sendStepManagementMenu, sendSetRoleForTourUI }; 

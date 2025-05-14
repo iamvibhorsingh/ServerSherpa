@@ -1,6 +1,6 @@
 // Placeholder for admin command logic
-const db = require('./database.js');
-const configManager = require('./configManager.js'); // May need this later
+const db = require('../db/database.js');
+const configManager = require('../managers/configManager.js'); // May need this later
 const { PermissionsBitField, EmbedBuilder, roleMention } = require('discord.js');
 
 // Helper function to parse role input (mention, ID, or name)

@@ -1,4 +1,4 @@
-const db = require('./database.js');
+const db = require('../db/database.js');
 
 // Helper function to get and validate server config, and update DB if necessary
 async function getAndValidateServerConfig(guild) {

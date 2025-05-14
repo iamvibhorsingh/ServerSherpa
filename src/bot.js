@@ -3,11 +3,11 @@
 
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionType, PermissionsBitField } = require('discord.js'); // Modified: Added ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionType, PermissionsBitField
-const db = require('./database.js'); // Import database module
-const configManager = require('./configManager.js'); // Import configManager module
-const tourManager = require('./tourManager.js'); // Require the new tour manager
-const adminCommandHandler = require('./adminCommands.js'); // Require the new admin command handler
-const adminInteractionHandler = require('./adminInteractionHandler.js'); // Require the new interaction handler
+const db = require('./db/database.js'); // Import database module
+const configManager = require('./managers/configManager.js'); // Import configManager module
+const tourManager = require('./managers/tourManager.js'); // Require the new tour manager
+const adminCommandHandler = require('./commands/adminCommands.js'); // Require the new admin command handler
+const adminInteractionHandler = require('./interactions/adminInteractionHandler.js'); // Require the new interaction handler
 
 const client = new Client({
     intents: [
@@ -21,7 +21,7 @@ const client = new Client({
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     // Watermark log for authorship proof
-    console.log('WATERMARK: Discord Tour Bot | Unique ID: DTB-2023-ORIGINAL-V1 | License: CC BY-NC 4.0 | Author: Original Creator');
+    console.log('WATERMARK: Discord Tour Bot | Unique ID: DTB-2023-ORIGINAL-V1 | License: CC BY-NC 4.0 | Author: github.com/iamvibhorsingh');
     // Ensure database is initialized (the database.js module handles this on require, but good to log)
     console.log('Database module loaded. Tables should be initializing if not present.');
     // Potentially, iterate over guilds the bot is in and ensure default tours/configs
@@ -239,4 +239,4 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN); 

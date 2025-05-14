@@ -4,7 +4,7 @@
 > 
 > **Unique ID:** DTB-2023-ORIGINAL-V1  
 > **License:** CC BY-NC 4.0  
-> **Original Creator**
+> **Original Creator** : github.com/iamvibhorsingh
 
 Hey there, server admin! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
 
@@ -52,7 +52,7 @@ If you want to host this bot yourself or contribute to its development:
 
 4. Register the slash commands
    ```
-   node deploy-commands.js
+   node src/commands/deploy-commands.js
    ```
 
 5. Start the bot
@@ -60,7 +60,57 @@ If you want to host this bot yourself or contribute to its development:
    npm start
    ```
 
-The bot uses SQLite for data storage, so no additional database setup is required. The database file (`tour_bot.db`) will be created automatically on first run.
+The bot uses SQLite for data storage, so no additional database setup is required. The database file (`src/db/tour_bot.db`) will be created automatically in the `src/db/` directory on first run.
+
+## 🌐 Hosting the Bot
+
+Once you have the bot running locally, you might want to host it on a server so it's online 24/7. Here are general steps and considerations:
+
+1.  **Choose a Hosting Provider:**
+    *   **Platform as a Service (PaaS):** Services like Heroku, Render, or Fly.io are often easier to get started with for Node.js apps. They might automatically detect your `package.json` and `Procfile`.
+    *   **Virtual Private Server (VPS):** Services like DigitalOcean, Linode, or AWS EC2 give you more control but require manual setup of Node.js, process managers (like PM2), and potentially a firewall.
+    *   **Dedicated Bot Hosting:** Some services specialize in hosting Discord bots.
+
+2.  **Prepare Your Code for Deployment:**
+    *   Ensure your `package.json` has a `start` script. Ours is `node src/bot.js`.
+    *   Your `Procfile` (`worker: node src/bot.js`) is essential for platforms like Heroku, telling them how to run your application.
+
+3.  **Deployment Process (General):**
+    *   **Connect to Git:** Most PaaS providers allow you to connect your GitHub repository for automatic deployments when you push changes.
+    *   **Manual Upload/CLI:** For VPS or other services, you might clone your repository directly onto the server using `git clone`, or upload your files via SFTP/SCP.
+
+4.  **Environment Variables:**
+    *   **DO NOT upload your `.env` file to your Git repository or directly to the hosting service if it's public.** This file contains sensitive information like your bot token.
+    *   Hosting providers have a section in their dashboard or settings where you can securely set environment variables (e.g., `DISCORD_BOT_TOKEN`, `DISCORD_CLIENT_ID`, `DISCORD_GUILD_ID`). Your application will read these from the hosting environment.
+
+5.  **Install Dependencies on the Server:**
+    *   After deploying your code, you'll need to install dependencies. Most PaaS providers do this automatically. On a VPS, you'd run `npm install --omit=dev` (or just `npm install` if you also need dev dependencies for some build step, though typically not for a simple bot).
+
+6.  **Run Slash Command Deployment:**
+    *   You will need to run `node src/commands/deploy-commands.js` **one time from your hosting environment if it has access to the internet and can make requests to Discord API** to register the slash commands globally.
+    *   Alternatively, you can run this command from your local machine before deploying, as slash commands are registered with Discord directly and don't need to be run from the bot's active process once registered. If you update commands, you'll need to re-run this.
+
+7.  **Start the Bot:**
+    *   Your hosting provider will use your `npm start` script (or the command in your `Procfile`) to start the bot.
+    *   If using a VPS, you'll want to use a process manager like `pm2` to keep the bot running in the background and automatically restart it if it crashes.
+        ```bash
+        # Example using pm2 on a VPS
+        npm install pm2 -g # Install pm2 globally
+        pm2 start npm --name "discord-tour-bot" -- run start
+        pm2 startup # To ensure it starts on server reboot
+        pm2 save
+        ```
+
+8.  **Database:**
+    *   Since SQLite creates a local file (`src/db/tour_bot.db`), ensure your hosting environment has persistent storage if you're using a PaaS. Some free tiers of PaaS might have ephemeral filesystems, meaning your database could be wiped on restarts or deploys.
+    *   For Heroku, the file system is ephemeral. You might need to consider using an add-on for persistent PostgreSQL or another database, which would require changes to `database.js`. For simple use cases and testing, SQLite might work, but be aware of data loss potential.
+    *   On a VPS, the database file will persist as long as the server's storage is intact.
+
+9.  **Logging and Monitoring:**
+    *   Check your hosting provider's dashboard for logs to monitor your bot's activity and troubleshoot issues.
+    *   For a VPS, `pm2 logs` can show you the console output.
+
+These are general guidelines. Specific steps will vary depending on the hosting service you choose. Always refer to your hosting provider's documentation for the most accurate instructions.
 
 ## 🚀 Getting Started (Admin Commands)
 

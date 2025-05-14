@@ -2,10 +2,10 @@
   "name": "discord-server-tour-guide",
   "version": "1.0.0",
   "description": "A Discord bot that acts as a server tour guide.",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "start": "node src/bot.js",
+    "dev": "nodemon src/bot.js"
   },
   "keywords": [
     "discord",

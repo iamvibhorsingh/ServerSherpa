@@ -731,4 +731,4 @@ module.exports = {
     logTourEvent,
     moveTourStep,
     getMaxStepNumber
-};
+}; 
