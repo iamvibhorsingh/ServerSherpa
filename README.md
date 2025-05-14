@@ -100,10 +100,10 @@ A tour without steps isn't much of a tour! Here's how to add them:
 
 #### Pro Tip: Special Channel Placeholders
 
-When writing step descriptions, you can use these placeholders that auto-convert to channel links:
+When writing step descriptions, you can use these placeholders (follow #channel_name_channel_id naming scheme) that auto-convert to channel links:
 - `<#rules_channel_id>` - Links to your rules channel
 - `<#announcements_channel_id>` - Links to announcements
-- `<#guides_channel_id>` - Links to guides/resources
+- `<#guides_channel_id>` - Links to guides
 
 The bot will try to find these channels by name if you haven't specifically configured them.
 
