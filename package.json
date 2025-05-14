@@ -1,7 +1,7 @@
 {
-  "name": "discord-server-tour-guide",
+  "name": "serversherpa",
   "version": "1.0.0",
-  "description": "A Discord bot that acts as a server tour guide.",
+  "description": "A Discord bot to guide users through your server with interactive tours.",
   "main": "src/bot.js",
   "scripts": {
     "start": "node src/bot.js",
@@ -10,7 +10,10 @@
   "keywords": [
     "discord",
     "bot",
-    "tour-guide"
+    "guide",
+    "tour",
+    "sherpa",
+    "onboarding"
   ],
   "author": "",
   "license": "ISC",

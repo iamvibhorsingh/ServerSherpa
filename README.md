@@ -1,4 +1,4 @@
-# Discord Tour Bot 🚩
+# ServerSherpa 🚩
 
 > **Project Watermark:** This project is uniquely identified by the following watermark for authorship and license proof:
 > 
@@ -8,7 +8,7 @@
 
 Hey there, server admin! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
 
-This bot lets you create interactive tours that walk new members through your server's channels, rules, and features. Think of it like having a friendly guide who shows newcomers around so they feel right at home.
+This bot (ServerSherpa) lets you create interactive tours that walk new members through your server's channels, rules, and features. Think of it like having a friendly guide who shows newcomers around so they feel right at home.
 
 ## ✨ What Can This Bot Do?
 
@@ -34,8 +34,8 @@ If you want to host this bot yourself or contribute to its development:
 
 1. Clone this repository
    ```
-   git clone https://github.com/yourusername/discord-tour-bot.git
-   cd discord-tour-bot
+   git clone https://github.com/yourusername/serversherpa.git
+   cd serversherpa
    ```
 
 2. Install dependencies
@@ -96,7 +96,7 @@ Once you have the bot running locally, you might want to host it on a server so 
         ```bash
         # Example using pm2 on a VPS
         npm install pm2 -g # Install pm2 globally
-        pm2 start npm --name "discord-tour-bot" -- run start
+        pm2 start npm --name "serversherpa" -- run start
         pm2 startup # To ensure it starts on server reboot
         pm2 save
         ```
@@ -205,7 +205,7 @@ When a member completes a tour, you can have the bot automatically assign them a
 
 ## 📝 Common Setup Example: Role-Based Access
 
-Here's a practical example of how you might use the tour bot for role-based access in your server:
+Here's a practical example of how you might use ServerSherpa for role-based access in your server:
 
 ### Creating a Multi-Level Access System:
 
