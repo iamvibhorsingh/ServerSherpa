@@ -70,6 +70,9 @@ async function handleAdminCommand(message, args) {
                 if (!tourName) {
                     return message.reply('Usage: `!admin tour create <Tour Name>`');
                 }
+                if (tourName.length > 100) {
+                    return message.reply('Tour name cannot exceed 100 characters.');
+                }
                 // Check if tour with this name already exists
                 const existing = await db.findTourByNameOrId(guildId, tourName);
                 if (existing) {
@@ -188,6 +191,12 @@ async function handleAdminCommand(message, args) {
                 if (!title) {
                     return message.reply('Missing title. Usage: `... <Title> | <Description>`');
                 }
+                if (title.length > 100) {
+                    return message.reply('Step title cannot exceed 100 characters.');
+                }
+                if (description.length > 1900) {
+                    return message.reply('Step description cannot exceed 1900 characters.');
+                }
                 const contentJson = JSON.stringify({ title, description });
                 const { stepId, assignedStepNumber } = await db.addTourStep(tour.tour_id, stepNumber, title, contentJson);
                 return message.reply(`Added new step (ID: ${stepId}) with title "${title}" as step number ${assignedStepNumber} to tour "${tour.tour_name}".`);
@@ -220,6 +229,12 @@ async function handleAdminCommand(message, args) {
                 const newDescription = parts[1] || '';
                 if (!newTitle) {
                      return message.reply('Missing new title. Usage: `... <New Title> | <New Description>`');
+                }
+                if (newTitle.length > 100) {
+                    return message.reply('New step title cannot exceed 100 characters.');
+                }
+                if (newDescription.length > 1900) {
+                    return message.reply('New step description cannot exceed 1900 characters.');
                 }
 
                 const newContentJson = JSON.stringify({ title: newTitle, description: newDescription });
