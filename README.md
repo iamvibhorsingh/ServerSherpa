@@ -4,7 +4,7 @@
 > 
 > **Unique ID:** DTB-2023-ORIGINAL-V1  
 > **License:** CC BY-NC 4.0  
-> **Original Creator** : github.com/iamvibhorsingh
+> **Original Creator** : [Vibhor Singh](https://github.com/iamvibhorsingh)
 
 Hey there, discord admins! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
 
