@@ -1,5 +1,5 @@
 {
-  "name": "serversherpa",
+  "name": "@iamvibhorsingh/serversherpa",
   "version": "1.0.0",
   "description": "A Discord bot to guide users through your server with interactive tours.",
   "main": "src/bot.js",
