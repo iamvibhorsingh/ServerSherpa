@@ -6,7 +6,7 @@
 > **License:** CC BY-NC 4.0  
 > **Original Creator** : github.com/iamvibhorsingh
 
-Hey there, server admin! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
+Hey there, discord admins! 👋 Looking for a way to welcome new members and guide them through your awesome Discord server? You've found it!
 
 This bot (ServerSherpa) lets you create interactive tours that walk new members through your server's channels, rules, and features. Think of it like having a friendly guide who shows newcomers around so they feel right at home.
 
